@@ -40,8 +40,9 @@ CREATE TABLE [Addresses]
 
 GO
 
-CREATE TABLE [Notes] (
-NoteId int IDENTITY NOT Null Primary Key,
-CustomerId int NOT Null Foreign Key REFERENCES Customers(CustomerId),
-Note nvarchar(255) NOT Null CHECK (Note != '')
+CREATE TABLE [Notes] 
+(
+	NoteId int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	CustomerId int NOT NULL FOREIGN KEY REFERENCES Customers(CustomerId),
+	Note nvarchar(255) NOT NULL CHECK (Note != '')
 )
